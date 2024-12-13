@@ -142,6 +142,7 @@ class SyrosPromoPopup {
 				'teeny'         => true, // Use a simplified editor
 			)
 		);
+		echo '<p class="description">Short Codes supported.</p>';
 	}
 
 	/**
