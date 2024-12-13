@@ -130,8 +130,18 @@ class SyrosPromoPopup {
 	 */
 	public function render_message_field() {
 		$value = get_option( $this->message_option_name, 'Default promotional message.' );
-		echo '<textarea name="' . esc_attr( $this->message_option_name ) . '" rows="5" cols="50">' . esc_textarea( $value ) . '</textarea>';
-		echo '<p class="description">HTML and shortcodes accepted.</p>';
+
+		// Display the WordPress WYSIWYG editor
+		wp_editor(
+			$value, // The current value of the option
+			$this->message_option_name, // HTML ID and name for the editor
+			array(
+				'textarea_name' => $this->message_option_name, // Name for the <textarea>
+				'media_buttons' => false, // Hide the "Add Media" button
+				'textarea_rows' => 10, // Number of rows in the editor
+				'teeny'         => true, // Use a simplified editor
+			)
+		);
 	}
 
 	/**
